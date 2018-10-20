@@ -52,26 +52,25 @@ def helper(t):
     for i in f:
         if i not in d:
             d.append(i)
-    s=[]
+    s={}
     for i in d:
-        s.append([i,f.count(i)])
+        s[i]=f.count(i)
     return(s)     
 
 def print_words(filename):
-    a=helper(filename)
-    a.sort()
-    for i in a:
-        print(i[0],' ',i[1])
+    text=helper(filename)
+    
+    for i in sorted(text):
+        print(i,' ',text[i])
 
 
 
 def print_top(filename):
-    a=helper(filename)
-    def Lout(a):
-        return a[1]
-    a=sorted(a,reverse=True,key=Lout)
+    text=helper(filename)
+    
+    k=sorted(text,reverse=True,key=text.__getitem__)
     for i in range(20):
-        print(a[i][0],' ',a[i][1])
+        print(k[i],' ',text[k[i]])
     
 def main():
   if len(sys.argv) != 3:
