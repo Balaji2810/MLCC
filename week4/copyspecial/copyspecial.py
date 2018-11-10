@@ -16,7 +16,6 @@ import subprocess
 # Write functions and modify main() to call them
 
 def get_special_paths(dirname):
-  
   result = []
   paths = os.listdir(dirname)  # list of paths in that dir
   for fname in paths:
@@ -27,7 +26,6 @@ def get_special_paths(dirname):
 
 
 def copy_to(paths, to_dir):
-  
   if not os.path.exists(to_dir):
     os.mkdir(to_dir)
   for path in paths:
@@ -36,7 +34,6 @@ def copy_to(paths, to_dir):
 
 
 def zip_to(paths, zipfile):
-  
   cmd = 'zip -j ' + zipfile + ' ' + ' '.join(paths)
   print "Command I'm going to do:" + cmd
   (status, output) = commands.getstatusoutput(cmd)
